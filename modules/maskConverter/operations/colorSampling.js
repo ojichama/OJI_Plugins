@@ -10,25 +10,28 @@ const layerUtils = require('../../shared/layerUtils');
  */
 async function sampleLayerColor(layer, logger) {
   if (!layer) {
-    return { r: 127, g: 127, b: 127 }; // Default gray
+    return { r: 127, g: 127, b: 127 };
   }
   
-  // Create temporary layer for sampling
-  const tempLayer = await layerUtils.duplicateLayer(layer, `${layer.name}_tempForColor`);
-  
-  // Sample color within executeAsModal
-  let sampledColor = { r: 65, g: 105, b: 225 }; // Default blue
+  let sampledColor = { r: 65, g: 105, b: 225 }; // デフォルト値
   
   try {
+    // tempLayerの作成と色のサンプリングをexecuteAsModal内で行う
+    await executeAsModal(async () => {
+      // ここでbatchPlayを使用して実際の色をサンプリング
+      // 例: 画像の中心からサンプリングするなど
+      
+      // サンプリング結果を設定
+      // sampledColor = 実際のサンプリング結果;
+    }, { commandName: "Sample Layer Color" });
+    
     if (logger) logger(`Sampled color from "${layer.name}": RGB(${sampledColor.r}, ${sampledColor.g}, ${sampledColor.b})`);
-  } finally {
-    // Clean up operations already use executeAsModal internally
-    await layerUtils.safeRemoveLayer(tempLayer, logger);
+  } catch (e) {
+    if (logger) logger(`Error sampling color: ${e.message}`);
   }
   
   return sampledColor;
 }
-
 module.exports = {
   sampleLayerColor
 };
