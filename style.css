@@ -1,0 +1,45 @@
+body {
+  color: white;
+  padding: 0 16px;
+  font-family: sans-serif;
+}
+
+.section-title {
+  margin: 12px 0 8px 0;
+  font-weight: bold;
+}
+
+.plugin-section {
+  border: 1px solid #808080;
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.status-text {
+  margin-bottom: 8px;
+}
+
+.log-area {
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 4px;
+  padding: 10px;
+  height: 100px;
+  overflow-y: auto;
+  font-family: monospace;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+footer {
+  margin-top: 30px;
+  text-align: center;
+  color: #999;
+}

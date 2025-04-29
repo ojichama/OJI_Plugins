@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>OJI Plugins</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- マスク変換機能 -->
+        <div class="plugin-section">
+            <h2 class="section-title">マスク付きレイヤーを塗りつぶしレイヤーに変換</h2>
+            <div class="status-text" id="maskConverterStatus">準備完了</div>
+            <progress id="maskConverterProgress" value="0" max="8"></progress>
+            <div class="log-area" id="maskConverterLog"></div>
+            <div class="button-group">
+                <button id="btnConvertLayers">変換開始</button>
+                <button id="btnCancelConversion">キャンセル</button>
+            </div>
+        </div>
+        
+        <!-- 一括出力機能 -->
+        <div class="plugin-section">
+            <h2 class="section-title">フォルダーグループごとに一括出力</h2>
+            <div class="status-text" id="exporterStatus">準備完了</div>
+            <progress id="exporterProgress" value="0" max="100"></progress>
+            <div class="log-area" id="exporterLog"></div>
+            <div class="button-group">
+                <button id="btnExportByFolder">出力開始</button>
+                <button id="btnCancelExport">キャンセル</button>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025 OJI Plugins. UXP Photoshop plugin.</p>
+        </footer>
+    </div>
+    
+    <!-- モジュールのロード -->
+    <script src="main.js"></script>
+</body>
+</html>
