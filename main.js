@@ -9,10 +9,12 @@ const app = photoshop.app;
 const { executeAsModal } = photoshop.core;
 
 // Import the mask converter module
-const maskConverter = require("./maskConverter/index.js");
+// Fixed path to match your actual file structure
+const maskConverter = require("./modules/maskConverter/index");
 
 // Import the batch exporter module
-const batchExporter = require("./batchExporter.js");
+// Fixed path to match your actual file structure
+const batchExporter = require("./modules/batchExporter");
 
 // DOM elements
 let maskConverterStatus;
