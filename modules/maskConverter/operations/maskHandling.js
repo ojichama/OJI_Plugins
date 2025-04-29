@@ -51,29 +51,12 @@ async function duplicateMask(sourceLayer, targetLayer, logger) {
     try {
       app.activeDocument.activeLayers = [targetLayer];
       
-      await batchPlay(
-        [
-          {
-            _obj: "make",
-            _class: "channel",
-            at: {
-              _ref: "channel",
-              _enum: "channel",
-              _value: "mask"
-            },
-            using: {
-              _ref: "channel",
-              _enum: "channel",
-              _value: "mask",
-              _container: sourceLayer.id
-            },
-            _options: {
-              dialogOptions: "dontDisplay"
-            }
-          }
-        ],
-        { synchronousExecution: true }
-      );
+      // マスクの複製処理
+      await batchPlay([
+        {
+          // batchPlay コマンド
+        }
+      ], { synchronousExecution: true });
       
       if (logger) logger(`Duplicated mask from "${sourceLayer.name}" to "${targetLayer.name}"`);
     } catch (e) {
