@@ -137,15 +137,17 @@ function saveLayerVisibility(layers) {
  * @param {Function} logger - Logging callback
  */
 async function restoreLayerVisibility(states, logger) {
-  for (let i = 0; i < states.length; i++) {
-    try {
-      states[i].layer.visible = states[i].visible;
-    } catch (e) {
-      if (logger) logger(`Error restoring visibility: ${e.message}`);
-      else console.error(`Error restoring visibility: ${e.message}`);
-    }
+    await executeAsModal(async () => {
+      for (let i = 0; i < states.length; i++) {
+        try {
+          states[i].layer.visible = states[i].visible;
+        } catch (e) {
+          if (logger) logger(`Error restoring visibility: ${e.message}`);
+          else console.error(`Error restoring visibility: ${e.message}`);
+        }
+      }
+    }, { commandName: "Restore Layer Visibility" });
   }
-}
 
 module.exports = {
   safeRemoveLayer,
